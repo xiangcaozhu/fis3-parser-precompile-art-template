@@ -2,7 +2,6 @@
 const path = require('path');
 const template = require('art-template');
 const precompile = require('art-template/lib/precompile');
-const runtime = require('art-template/lib/runtime');
 const _ = fis.util;
 /**
  * Compile 阶段插件接口
@@ -20,8 +19,7 @@ module.exports = function (content, file, settings) {
     let result;
     // 默认与自定义配置合并
     let options = _.assign({
-        filename: path.basename(file.realpath),
-        imports: runtime,
+        filename: file.realpath,
         syncImport: true,
         relativeUrls: true
     }, settings);
