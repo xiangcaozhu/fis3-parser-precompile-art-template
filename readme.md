@@ -12,7 +12,7 @@ define('src/components/table.tpl',function(require, exports, module){
 })
 ```
 ## 配置
-fis-config.js文件中添加如下配置：
+fis-config.js文件中添加如下配置(支持template.defaults中所以的设置)：
 ``` js
 fis.match('*.{tpl, art}', {
     rExt: '.js',
@@ -23,6 +23,8 @@ fis.match('*.{tpl, art}', {
         compileDebug: false,
         escape: false,
         cache: false,
+        // 导入的模板运行时变量
+        imports: 'art-template/lib/runtime'
     })
 });
 ```
