@@ -39,6 +39,15 @@ module.exports = function (content, file, settings) {
     if (options.cache) {
         template.defaults.cache = options.cache;
     }
+    // 自定义rules存在，就用自定义的
+    if (options.rules && options.rules instanceof Array) {
+        template.defaults.rules = options.rules;
+    }
+    // 自定义ignore存在，就用新增自定义的
+    if (options.ignore && options.ignore instanceof Array) {
+        // 默认解析规则输入
+        options.ignore.push(`require`);
+    }
     // 自定义sourceMap存在，就用自定义的
     // 是否产生map源文件
     let sourceMap = options.sourceMap;
@@ -58,9 +67,6 @@ module.exports = function (content, file, settings) {
             sourceMapFileInline: false
         }, sourceMap);
     }
-    // 默认解析规则输入
-    options.rules.push(...template.defaults.rules);
-    options.ignore.push(`require`);
     // content是fis3读取的文件内容
     options.source = content;
     options.filename = file.filename;
