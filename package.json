@@ -1,6 +1,6 @@
 {
   "name": "fis3-parser-precompile-art-template",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "artTemplate@4.x precompile engine",
   "main": "index.js",
   "scripts": {

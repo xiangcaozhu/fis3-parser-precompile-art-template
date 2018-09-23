@@ -1,7 +1,7 @@
 
 const path = require('path');
 const template = require('art-template');
-const precompile = requier('art-template/lib/precompile');
+const precompile = require('art-template/lib/precompile');
 const _ = fis.util;
 /**
  * Compile 阶段插件接口
