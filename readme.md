@@ -23,5 +23,5 @@ var tableHtml = renderTable({
     title:'表格标题'
 })
 // 插入到文档页面中
-$('body).append(tableHtml);
+$('body').append(tableHtml);
 ```
