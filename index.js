@@ -83,5 +83,5 @@ module.exports = function (content, file, settings) {
         file.derived.push(sourceMapFile);
     }
     // 把处理结果返回
-    return templateCode;
+    return (file.isMod ? 'module.exports = ' : '') + templateCode;
 };

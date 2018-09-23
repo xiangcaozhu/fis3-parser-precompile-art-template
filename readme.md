@@ -11,6 +11,23 @@ define('src/components/table.tpl',function(require, exports, module){
     module.exports = function () {}
 })
 ```
+## 配置
+fis-config.js文件中添加如下配置：
+``` js
+fis.match('*.{tpl, art}', {
+    rExt: '.js',
+    isMod: true,
+    parser: [
+        fis.plugin('prcompile-art-template',{
+            sourceMap: true,
+            minimize: false,
+            compileDebug: true,
+            escape: true,
+            cache: true
+        })
+    ]
+});
+```
 ## 使用
 
 > npm install fis3-parser-prcompile-art-template
