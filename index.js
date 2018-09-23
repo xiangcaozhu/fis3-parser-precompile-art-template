@@ -2,6 +2,7 @@
 const path = require('path');
 const template = require('art-template');
 const precompile = require('art-template/lib/precompile');
+const runtime = require('art-template/lib/runtime');
 const _ = fis.util;
 /**
  * Compile 阶段插件接口
@@ -20,6 +21,7 @@ module.exports = function (content, file, settings) {
     // 默认与自定义配置合并
     let options = _.assign({
         filename: path.basename(file.realpath),
+        imports: runtime,
         syncImport: true,
         relativeUrls: true
     }, settings);
@@ -69,7 +71,7 @@ module.exports = function (content, file, settings) {
     }
     // content是fis3读取的文件内容
     options.source = content;
-    options.filename = file.filename;
+    // options.filename = file.filename;
     options.sourceRoot = process.cwd();
     // 预编译模板文件
     try {
@@ -89,5 +91,5 @@ module.exports = function (content, file, settings) {
         file.derived.push(sourceMapFile);
     }
     // 把处理结果返回
-    return (file.isMod ? 'module.exports = ' : '') + templateCode;
+    return templateCode;
 };
