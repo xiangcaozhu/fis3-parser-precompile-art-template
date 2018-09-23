@@ -1,0 +1,17 @@
+{
+  "name": "fis3-parser-precompile-art-template",
+  "version": "1.0.0",
+  "description": "artTemplate@4.x precompile engine",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "art-template@4"
+  ],
+  "author": "zhusun",
+  "license": "MIT",
+  "dependencies": {
+    "art-template": "^4.13.0"
+  }
+}
